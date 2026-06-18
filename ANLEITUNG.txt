@@ -1,0 +1,86 @@
+========================================================================
+             ANLEITUNG: DIGITALE BILDER-PRÄSENTATION
+========================================================================
+
+Willkommen! Mit diesem Programm können Sie Fotos und Infos ganz einfach
+auf einem großen Bildschirm, Monitor oder Fernseher präsentieren.
+
+Das System läuft komplett auf Ihrem Computer und benötigt KEINE 
+Internetverbindung. Sie müssen nichts installieren!
+
+
+------------------------------------------------------------------------
+SCHRITT 1: Die Fotos vorbereiten & Format-Empfehlung
+------------------------------------------------------------------------
+1. Sammeln Sie die Fotos, die Sie zeigen möchten.
+2. Schieben Sie die Fotos in den Ordner namens "images".
+3. Tipp: Benennen Sie die Fotos einfach um (z. B. "bild1.jpg", "bild2.jpg"), 
+   damit Sie den Überblick behalten.
+
+💡 WICHTIGE EMPFEHLUNG FÜR DIE FOTOS:
+* Das beste Format: Nutzen Sie Standard-Bilder im Format ".jpg" (oder ".jpeg"). 
+  Auch ".png" funktioniert problemlos.
+* Achtung bei iPhones/iPads: Fotos im Apple-Format ".heic" können von 
+  vielen Browsern NICHT angezeigt werden. Konvertieren Sie diese vorher in ein JPG.
+* Die richtige Größe: Moderne Handyfotos sind oft riesig (5 MB und mehr). 
+  Wenn Sie viele Bilder nutzen, kann die Präsentation ins Ruckeln geraten. 
+  Es wird empfohlen, die Bilder vorab kurz zu verkleinern (eine Breite von 
+  ca. 1920 Pixeln bzw. Full-HD reicht völlig aus).
+* Ausrichtung: Es können sowohl Quer- als auch Hochkant-Fotos verwendet werden!
+
+
+------------------------------------------------------------------------
+SCHRITT 2: Texte und Bilder eintragen (Die Datei "config.js")
+------------------------------------------------------------------------
+Öffnen Sie die Datei "config.js" mit einem Doppelklick. (Falls Ihr Computer 
+fragt womit: Wählen Sie "Editor", "Notepad" oder ein anderes Textprogramm).
+
+Hier sehen Sie ein vorgefertigtes Muster. Sie müssen nur die Texte 
+zwischen den Anführungszeichen "..." ändern:
+
+* "welcomeTitle": Der große Begrüßungstext ganz am Anfang.
+* "endText": Der Text, der ganz am Ende erscheint.
+* "title": Die Überschrift der aktuellen Folie (z. B. "Klasse 5b" oder "Kunst-AG").
+* "description": Ein kurzer Beschreibungstext dazu.
+* "file": Der genaue Name des Fotos im images-Ordner (z. B. "images/bild1.jpg").
+* "label": Das Text-Schildchen am Foto (z. B. "PROJEKTSTART" oder "ERGEBNIS").
+
+WICHTIG: Achten Sie darauf, dass die Kommas (,) und Anführungszeichen (" ") 
+beim Tippen nicht gelöscht werden! Danach einfach SPEICHERN und schließen.
+
+
+------------------------------------------------------------------------
+SCHRITT 3: Präsentation starten
+------------------------------------------------------------------------
+Machen Sie einfach einen Doppelklick auf die Datei:
+
+   👉 index.html
+
+Die Präsentation öffnet sich sofort in Ihrem ganz normalen Internet-Browser. 
+Drücken Sie auf Ihrer Tastatur die Taste [F11], um die Präsentation im 
+Vollbildmodus anzuzeigen.
+
+
+------------------------------------------------------------------------
+HÄUFIGE FRAGEN & EINSTELLUNGEN
+------------------------------------------------------------------------
+
+Frage: Wie stelle ich ein, ob die Präsentation von vorne beginnen soll?
+Antwort: Das steuern Sie in der "config.js" ganz oben mit der Zeile "loop":
+* "loop": true   -> Die Präsentation läuft endlos weiter (perfekt für Info-Monitore).
+* "loop": false  -> Die Präsentation stoppt am Ende auf der Abschiedsfolie.
+
+Frage: Ein Bild wird nicht angezeigt (nur ein schwarzer Kasten).
+Antwort: 
+1. Überprüfen Sie in der "config.js", ob der Dateiname haargenau stimmt. 
+   Ein großes "Bild.JPG" ist für den Computer etwas anderes als ein kleines 
+   "bild.jpg". Auch jeder Punkt und Unterstrich muss exakt übereinstimmen.
+2. Prüfen Sie, ob es sich um ein ".heic"-Bild vom iPhone handelt (siehe Schritt 1).
+
+Frage: Wie schnell wechseln die Bilder?
+Antwort: Das ist in der "config.js" ganz oben eingestellt:
+* "slideDuration": 5000  (bedeutet: 5 Sekunden Standzeit am Ende einer Folie)
+* "stepDuration": 2000   (bedeutet: 2 Sekunden Abstand beim Aufdecken von Fotostapeln)
+
+========================================================================
+Viel Spaß mit Ihrer Präsentation!
