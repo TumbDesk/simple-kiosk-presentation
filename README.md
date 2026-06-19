@@ -12,7 +12,7 @@ This tool was developed to provide a lightweight, low-maintenance alternative to
 - **Simple Configuration:** Content management is centralized within a single, clean configuration file (`config.js`).
 - **Zero Installation:** Runs directly via double-click in any modern web browser.
 - **Smart Stacking:** Dynamic, time-controlled revealing of image stacks for engaging presentations.
-- **Responsive Layout:** Automatic detection and optimized display of both portrait and landscape images.
+- **Smart Image Adaptation:** Automatically detects portrait and landscape formats to ensure perfect, distortion-free display on kiosk screens.
 
 ## Structure
 - `index.html` - The main entry point (open in any browser)

@@ -10,4 +10,4 @@ Dieses Tool wurde entwickelt, um eine schlanke und wartungsarme Alternative zu k
 - **Einfache Konfiguration:** Die Pflege von Texten und Bildern erfolgt zentral über eine einzige, übersichtliche Konfigurationsdatei (`config.js`).
 - **Zero Installation:** Läuft direkt per Doppelklick lokal in jedem modernen Webbrowser.
 - **Smart Stacking:** Dynamisches, zeitgesteuertes Aufdecken von Bildstapeln für lebendige Präsentationen.
-- **Responsive Layout:** Automatische Erkennung und optimierte Darstellung von Hochkant- und Querformat-Bildern.
+- **Intelligente Bildanpassung:** Automatische Erkennung von Hoch- und Querformaten für eine verzerrungsfreie und optimale Darstellung auf dem Kiosk-Monitor.
