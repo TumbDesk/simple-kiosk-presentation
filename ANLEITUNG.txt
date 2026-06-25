@@ -44,6 +44,11 @@ zwischen den Anführungszeichen "..." ändern:
 * "description": Ein kurzer Beschreibungstext dazu.
 * "file": Der genaue Name des Fotos im images-Ordner (z. B. "images/bild1.jpg").
 * "label": Das Text-Schildchen am Foto (z. B. "PROJEKTSTART" oder "ERGEBNIS").
+* "layout": Optional. Nur bei Folien mit mehreren Fotos. Wenn Sie "center"
+  eintragen, gibt es kein festes „Vorher"-Bild links — alle Fotos erscheinen
+  mittig und werden nacheinander aufgedeckt. Wenn Sie die Zeile weglassen,
+  bleibt das erste Foto links stehen (Vorher/Nachher-Ansicht).
+  Beispiel: "layout": "center",
 
 WICHTIG: Achten Sie darauf, dass die Kommas (,) und Anführungszeichen (" ") 
 beim Tippen nicht gelöscht werden! Danach einfach SPEICHERN und schließen.
@@ -81,6 +86,13 @@ Frage: Wie schnell wechseln die Bilder?
 Antwort: Das ist in der "config.js" ganz oben eingestellt:
 * "slideDuration": 5000  (bedeutet: 5 Sekunden Standzeit am Ende einer Folie)
 * "stepDuration": 2000   (bedeutet: 2 Sekunden Abstand beim Aufdecken von Fotostapeln)
+
+Frage: Wann soll ich "layout": "center" verwenden?
+Antwort:
+* Standard (Zeile weglassen): Perfekt für Vorher/Nachher-Projekte. Das erste
+  Foto bleibt links sichtbar, die weiteren Fotos werden rechts aufgedeckt.
+* "layout": "center": Für Projekte ohne klares Vorher-Bild, z. B. eine
+  Schritt-für-Schritt-Montage. Alle Fotos werden mittig im Stapel gezeigt.
 
 ========================================================================
 Viel Spaß mit Ihrer Präsentation!
