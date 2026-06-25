@@ -53,10 +53,14 @@ presentationData.projects.forEach((project, index) => {
             </div>
         `;
     } else {
-        const firstImg = project.images[0];
-        const stackImages = project.images.slice(1);
-        const firstColorClass = firstImg.label_color ? firstImg.label_color : 'before';
+        const isCentered = project.layout === 'center';
+        
+        // Position class for the badge must be defined here for all
         const firstPositionClass = badgeStyle === 'modern' ? 'modern-left' : '';
+        
+        // If centered, there is no "first before image". All images move into the stack.
+        const firstImg = isCentered ? null : project.images[0];
+        const stackImages = isCentered ? project.images : project.images.slice(1);
         
         let stackHtml = '';
         stackImages.forEach((imgObj, imgIndex) => {
@@ -76,18 +80,21 @@ presentationData.projects.forEach((project, index) => {
             `;
         });
 
+        // Now firstPositionClass is available here below, if !isCentered is active
         innerHtml = `
             <div class="slide-header">
                 <h2>${project.title}</h2>
                 <p>${project.description}</p>
             </div>
-            <div class="stack-container">
+            <div class="stack-container ${isCentered ? 'centered-stack' : ''}">
+                ${!isCentered ? `
                 <div class="image-card">
-                    <span class="badge ${badgeStyle} ${firstColorClass} ${firstPositionClass}">${firstImg.label}</span>
+                    <span class="badge ${badgeStyle} ${firstImg.label_color ? firstImg.label_color : 'before'} ${firstPositionClass}">${firstImg.label}</span>
                     <div class="image-container" style="background-image: url('${firstImg.file}');">
                         <img src="${firstImg.file}" alt="${firstImg.label}">
                     </div>
                 </div>
+                ` : ''}
                 <div class="right-stack">
                     ${stackHtml}
                 </div>

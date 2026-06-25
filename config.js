@@ -30,6 +30,16 @@ const presentationData = {
         ]
       },
       {
+        "title": "Die neue Leinwand",
+        "description": "Endlich klare Bilder",
+        "layout": "center",
+        "images": [
+          { "file": "images/screen_step1.jpg", "label": "In the box.", "label_color": "orange" },
+          { "file": "images/screen_step2.jpg", "label": "Die Spannung steigt...", "label_color": "yellow" },
+          { "file": "images/screen_step3.jpg", "label": "FERTIG!" }
+        ]
+      },
+      {
         "title": "Die Video-AG",
         "description": "Unser stolzes Dokumentations-Team.",
         "images": [
