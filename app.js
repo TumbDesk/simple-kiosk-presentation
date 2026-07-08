@@ -38,7 +38,7 @@ presentationData.projects.forEach((project, index) => {
         const colorClass = singleImg.label_color ? singleImg.label_color : 'default-badge';
         const positionClass = badgeStyle === 'modern' ? 'modern-left' : '';
 
-        // Fix: Badge nur generieren, wenn ein Label existiert
+        // Fix: Only generate the badge if a label exists.
         const badgeHtml = singleImg.label
             ? `<span class="badge ${badgeStyle} ${colorClass} ${positionClass}">${singleImg.label}</span>`
             : '';
@@ -59,8 +59,9 @@ presentationData.projects.forEach((project, index) => {
         `;
     } else {
         const isCentered = project.layout === 'center';
+        // Position class for the badge must be defined here for all
         const firstPositionClass = badgeStyle === 'modern' ? 'modern-left' : '';
-
+        // If centered, there is no "first before image". All images move into the stack.
         const firstImg = isCentered ? null : project.images[0];
         const stackImages = isCentered ? project.images : project.images.slice(1);
 
