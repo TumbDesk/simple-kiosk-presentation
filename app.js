@@ -29,7 +29,7 @@ presentationData.projects.forEach((project, index) => {
     const slideDiv = document.createElement('div');
     const isFirstActive = !presentationData.settings.welcomeTitle && index === 0;
     slideDiv.className = `slide ${isFirstActive ? 'active' : ''}`;
-    
+
     const totalImages = project.images.length;
     let innerHtml = '';
 
@@ -37,7 +37,12 @@ presentationData.projects.forEach((project, index) => {
         const singleImg = project.images[0];
         const colorClass = singleImg.label_color ? singleImg.label_color : 'default-badge';
         const positionClass = badgeStyle === 'modern' ? 'modern-left' : '';
-        
+
+        // Fix: Badge nur generieren, wenn ein Label existiert
+        const badgeHtml = singleImg.label
+            ? `<span class="badge ${badgeStyle} ${colorClass} ${positionClass}">${singleImg.label}</span>`
+            : '';
+
         innerHtml = `
             <div class="slide-header">
                 <h2>${project.title}</h2>
@@ -45,23 +50,20 @@ presentationData.projects.forEach((project, index) => {
             </div>
             <div class="single-container">
                 <div class="image-card">
-                    <span class="badge ${badgeStyle} ${colorClass} ${positionClass}">${singleImg.label}</span>
+                    ${badgeHtml}
                     <div class="image-container" style="background-image: url('${singleImg.file}');">
-                        <img src="${singleImg.file}" alt="${singleImg.label}">
+                        <img src="${singleImg.file}" alt="${singleImg.label || ''}">
                     </div>
                 </div>
             </div>
         `;
     } else {
         const isCentered = project.layout === 'center';
-        
-        // Position class for the badge must be defined here for all
         const firstPositionClass = badgeStyle === 'modern' ? 'modern-left' : '';
-        
-        // If centered, there is no "first before image". All images move into the stack.
+
         const firstImg = isCentered ? null : project.images[0];
         const stackImages = isCentered ? project.images : project.images.slice(1);
-        
+
         let stackHtml = '';
         stackImages.forEach((imgObj, imgIndex) => {
             const isLast = imgIndex === stackImages.length - 1;
@@ -69,18 +71,29 @@ presentationData.projects.forEach((project, index) => {
             const colorClass = imgObj.label_color ? imgObj.label_color : defaultClass;
             const positionClass = badgeStyle === 'modern' ? 'modern-right' : '';
             const offset = offsets[imgIndex % offsets.length];
-            
+
+            // Fix: Badge für Stack-Bilder nur generieren, wenn Label existiert
+            const stackBadgeHtml = imgObj.label
+                ? `<span class="badge ${badgeStyle} ${colorClass} ${positionClass}">${imgObj.label}</span>`
+                : '';
+
             stackHtml += `
                 <div class="image-card stacked-card" style="--rot: ${offset.r}deg; --tx: ${offset.x}px; --ty: ${offset.y}px;">
-                    <span class="badge ${badgeStyle} ${colorClass} ${positionClass}">${imgObj.label}</span>
+                    ${stackBadgeHtml}
                     <div class="image-container" style="background-image: url('${imgObj.file}');">
-                        <img src="${imgObj.file}" alt="${imgObj.label}">
+                        <img src="${imgObj.file}" alt="${imgObj.label || ''}">
                     </div>
                 </div>
             `;
         });
 
-        // Now firstPositionClass is available here below, if !isCentered is active
+        // Fix: Badge für das Hauptbild links nur generieren, wenn Label existiert
+        let firstBadgeHtml = '';
+        if (firstImg && firstImg.label) {
+            const firstColorClass = firstImg.label_color ? firstImg.label_color : 'before';
+            firstBadgeHtml = `<span class="badge ${badgeStyle} ${firstColorClass} ${firstPositionClass}">${firstImg.label}</span>`;
+        }
+
         innerHtml = `
             <div class="slide-header">
                 <h2>${project.title}</h2>
@@ -89,9 +102,9 @@ presentationData.projects.forEach((project, index) => {
             <div class="stack-container ${isCentered ? 'centered-stack' : ''}">
                 ${!isCentered ? `
                 <div class="image-card">
-                    <span class="badge ${badgeStyle} ${firstImg.label_color ? firstImg.label_color : 'before'} ${firstPositionClass}">${firstImg.label}</span>
+                    ${firstBadgeHtml}
                     <div class="image-container" style="background-image: url('${firstImg.file}');">
-                        <img src="${firstImg.file}" alt="${firstImg.label}">
+                        <img src="${firstImg.file}" alt="${firstImg.label || ''}">
                     </div>
                 </div>
                 ` : ''}
@@ -125,7 +138,7 @@ let stackTimeout = null;
 
 function runSlideMechanism() {
     clearTimeout(stackTimeout);
-    
+
     if (currentIndex === 0) {
         const allStackedCards = container.querySelectorAll('.stacked-card');
         allStackedCards.forEach(card => {
@@ -133,10 +146,10 @@ function runSlideMechanism() {
             card.style.transform = 'scale(0.9) rotate(0deg)';
         });
     }
-    
+
     const currentSlide = slides[currentIndex];
     const stackedCards = currentSlide.querySelectorAll('.stacked-card');
-    
+
     stackedCards.forEach(card => {
         card.classList.remove('revealed');
         card.style.transform = 'scale(0.9) rotate(0deg)';
@@ -146,8 +159,8 @@ function runSlideMechanism() {
     progressBar.style.width = '0%';
 
     let cardIndex = 0;
-    const stepDelay = presentationData.settings.stepDuration || 2000; 
-    const finalWait = presentationData.settings.slideDuration; 
+    const stepDelay = presentationData.settings.stepDuration || 2000;
+    const finalWait = presentationData.settings.slideDuration;
 
     function finishSlide(waitTime) {
         const nextIndex = (currentIndex + 1) % slides.length;
@@ -157,17 +170,17 @@ function runSlideMechanism() {
         if (presentationData.settings.showProgressBar && (!isLoopEnd || shouldLoop)) {
             progressBar.style.transition = 'none';
             progressBar.style.width = '0%';
-            
+
             setTimeout(() => {
                 progressBar.style.transition = `width ${waitTime}ms linear`;
                 progressBar.style.width = '100%';
             }, 50);
         }
-        
+
         stackTimeout = setTimeout(() => {
             if (isLoopEnd && !shouldLoop) {
                 console.log("Presentation ended (loop disabled).");
-                return; 
+                return;
             }
 
             slides[currentIndex].classList.remove('active');
@@ -181,12 +194,12 @@ function runSlideMechanism() {
         if (cardIndex < stackedCards.length) {
             const card = stackedCards[cardIndex];
             card.classList.add('revealed');
-            
+
             const rot = card.style.getPropertyValue('--rot');
             const tx = card.style.getPropertyValue('--tx');
             const ty = card.style.getPropertyValue('--ty');
             card.style.transform = `scale(1) rotate(${rot}) translate(${tx}, ${ty})`;
-            
+
             cardIndex++;
             if (cardIndex === stackedCards.length) {
                 finishSlide(finalWait);
