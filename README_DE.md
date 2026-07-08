@@ -4,7 +4,7 @@ Anzeige- und Präsentationssystem für Info-Monitore, Ausstellungen und Veransta
 
 ## 🚀 Aktuellste Version & Live-Demo
 Die neueste Version, den Quellcode und alle Aktualisierungen findest du immer direkt im offiziellen GitHub-Repository:
-👉 **[GitHub-Repository](https://github.com/TumbDesk/simple-kiosk-presentation)** *(Ersetze dies mit deinem echten Link!)*
+👉 **[GitHub-Repository](https://github.com/TumbDesk/simple-kiosk-presentation)**
 
 *Möchtest du das System direkt in Aktion sehen?* Hier geht es zur [Live-Demo via GitHub Pages](https://tumbdesk.github.io/simple-kiosk-presentation/).
 

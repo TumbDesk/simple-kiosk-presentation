@@ -6,7 +6,7 @@ A minimalist, web-based kiosk presentation system designed for information scree
 
 ## 🚀 Latest Version & Live Demo
 You can always find the latest release, source code, and updates directly in the official GitHub repository:
-👉 **[GitHub Repository](https://github.com/TumbDesk/simple-kiosk-presentation)** *(Ersetze dies mit deinem echten Link!)*
+👉 **[GitHub Repository](https://github.com/TumbDesk/simple-kiosk-presentation)**
 
 *Want to see it in action?* Check out the [Live Demo via GitHub Pages](https://tumbdesk.github.io/simple-kiosk-presentation/).
 
