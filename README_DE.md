@@ -2,6 +2,12 @@
 
 Anzeige- und Präsentationssystem für Info-Monitore, Ausstellungen und Veranstaltungen.
 
+## 🚀 Aktuellste Version & Live-Demo
+Die neueste Version, den Quellcode und alle Aktualisierungen findest du immer direkt im offiziellen GitHub-Repository:
+👉 **[GitHub-Repository](https://github.com/TumbDesk/simple-kiosk-presentation)** *(Ersetze dies mit deinem echten Link!)*
+
+*Möchtest du das System direkt in Aktion sehen?* Hier geht es zur [Live-Demo via GitHub Pages](https://tumbdesk.github.io/simple-kiosk-presentation/).
+
 ## Warum dieses Projekt?
 Dieses Tool wurde entwickelt, um eine schlanke und wartungsarme Alternative zu komplexer Kiosk-Software zu bieten. Es ermöglicht eine schnelle und unkomplizierte Pflege von Inhalten (Texten und Bildern), ohne dass dafür eine Server-Infrastruktur, Content-Management-Systeme (CMS) oder Programmierkenntnisse erforderlich sind. Das System ist auf maximale Barrierefreiheit in der Handhabung ausgelegt.
 

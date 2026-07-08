@@ -4,6 +4,12 @@
 
 A minimalist, web-based kiosk presentation system designed for information screens, exhibitions, and events.
 
+## 🚀 Latest Version & Live Demo
+You can always find the latest release, source code, and updates directly in the official GitHub repository:
+👉 **[GitHub Repository](https://github.com/TumbDesk/simple-kiosk-presentation)** *(Ersetze dies mit deinem echten Link!)*
+
+*Want to see it in action?* Check out the [Live Demo via GitHub Pages](https://tumbdesk.github.io/simple-kiosk-presentation/).
+
 ## Why this project?
 This tool was developed to provide a lightweight, low-maintenance alternative to complex kiosk software. It allows users to quickly and easily update content (texts and images) without requiring a server infrastructure, Content Management Systems (CMS), or programming skills. The system is designed for maximum ease of use.
 
